@@ -25,22 +25,22 @@
 		"commands": [
 			{
 				"command": "file-management.copyFileName",
-				"title": "File: Copy File Name",
+				"title": "Copy File Name",
 				"enablement": "resourceScheme != 'untitled'"
 			},
 			{
 				"command": "file-management.renameFile",
-				"title": "File: Rename File",
+				"title": "Rename File",
 				"enablement": "resourceScheme != 'untitled'"
 			},
 			{
 				"command": "file-management.moveFile",
-				"title": "File: Move File",
+				"title": "Move File",
 				"enablement": "resourceScheme != 'untitled'"
 			},
 			{
 				"command": "file-management.deleteFile",
-				"title": "File: Delete File",
+				"title": "Delete File",
 				"enablement": "resourceScheme != 'untitled'"
 			}
 		],

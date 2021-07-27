@@ -8,3 +8,7 @@
 
 - Added "Copy File Name"
 - Prefix commands wih "File: " to match VSCode format
+
+## 1.0.2
+
+- Removed "File: " prefix
