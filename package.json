@@ -7,7 +7,7 @@
 		"type": "git",
 		"url": "https://github.com/ssigwart/vscode-file-management"
 	},
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"engines": {
 		"vscode": "^1.58.0"
 	},
@@ -15,6 +15,7 @@
 		"Other"
 	],
 	"activationEvents": [
+		"onCommand:file-management.copyFileName",
 		"onCommand:file-management.renameFile",
 		"onCommand:file-management.moveFile",
 		"onCommand:file-management.deleteFile"
@@ -23,23 +24,33 @@
 	"contributes": {
 		"commands": [
 			{
+				"command": "file-management.copyFileName",
+				"title": "File: Copy File Name",
+				"enablement": "resourceScheme != 'untitled'"
+			},
+			{
 				"command": "file-management.renameFile",
-				"title": "Rename File",
+				"title": "File: Rename File",
 				"enablement": "resourceScheme != 'untitled'"
 			},
 			{
 				"command": "file-management.moveFile",
-				"title": "Move File",
+				"title": "File: Move File",
 				"enablement": "resourceScheme != 'untitled'"
 			},
 			{
 				"command": "file-management.deleteFile",
-				"title": "Delete File",
+				"title": "File: Delete File",
 				"enablement": "resourceScheme != 'untitled'"
 			}
 		],
 		"menus": {
 			"editor/title/context": [
+				{
+					"when": "resourceScheme != 'untitled'",
+					"command": "file-management.copyFileName",
+					"group": "1_cutcopypaste"
+				},
 				{
 					"when": "resourceScheme != 'untitled'",
 					"command": "file-management.renameFile",

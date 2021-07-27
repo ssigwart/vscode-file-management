@@ -9,6 +9,7 @@ import * as vscode from 'vscode';
  */
 export function activate(context: vscode.ExtensionContext)
 {
+	registerComment(context, 'file-management.copyFileName', copyFileName);
 	registerComment(context, 'file-management.renameFile', renameFile);
 	registerComment(context, 'file-management.moveFile', moveFile);
 	registerComment(context, 'file-management.deleteFile', deleteFile);
@@ -25,6 +26,20 @@ function registerComment(context: vscode.ExtensionContext, commandId: string, fu
 {
 	let disposable = vscode.commands.registerCommand(commandId, func);
 	context.subscriptions.push(disposable);
+}
+
+/**
+ * Copy file name
+ */
+async function copyFileName(): Promise<void>
+{
+	if (!vscode.window.activeTextEditor)
+		vscode.window.showErrorMessage("No active editor to save.");
+	else
+	{
+		const fileName = basename(vscode.window.activeTextEditor.document.uri.path);
+		vscode.env.clipboard.writeText(fileName);
+	}
 }
 
 /**
